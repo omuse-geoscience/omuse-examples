@@ -1,0 +1,1532 @@
+ 
+========================================================================
+ 
+  I/O:
+ 
+ io_nml namelist settings:
+ 
+ &IO_NML
+ NUM_IOTASKS     =           1,
+ LREDIRECT_STDOUT        = F,
+ LOG_FILENAME    = pop.out                                                                                                           
+                                                                                                                                     
+           ,
+ LUSE_POINTER_FILES      = F,
+ POINTER_FILENAME        = pointer                                                                                                   
+                                                                                                                                     
+                   ,
+ LUSE_NF_64BIT_OFFSET    = F
+ /
+ 
+ 
+========================================================================
+ 
+  Grid:
+ 
+  grid_nml namelist settings:
+ 
+ &GRID_NML
+ HORIZ_GRID_OPT  = internal                                                                                                          
+                                                                                                                                     
+           ,
+ VERT_GRID_OPT   = internal                                                                                                          
+                                                                                                                                     
+           ,
+ TOPOGRAPHY_OPT  = internal                                                                                                          
+                                                                                                                                     
+           ,
+ HORIZ_GRID_FILE =                                                                                                                   
+                                                                                                                                     
+           ,
+ VERT_GRID_FILE  =                                                                                                                   
+                                                                                                                                     
+           ,
+ TOPOGRAPHY_FILE =                                                                                                                   
+                                                                                                                                     
+           ,
+ TOPO_SMOOTH     = F,
+ FLAT_BOTTOM     = F,
+ LREMOVE_POINTS  = F,
+ REGION_MASK_FILE        = unknown_region_mask                                                                                       
+                                                                                                                                     
+                   ,
+ REGION_INFO_FILE        = unknown_region_info                                                                                       
+                                                                                                                                     
+                   ,
+ SFC_LAYER_OPT   = varthick                                                                                                          
+                                                                                                                                     
+           ,
+ PARTIAL_BOTTOM_CELLS    = F,
+ BOTTOM_CELL_FILE        = unknown_bottom_cell                                                                                       
+                                                                                                                                     
+                   
+ /
+------------------------------------------------------------------------
+ 
+Tavg options
+ 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+ 
+Movie option
+ 
+------------------------------------------------------------------------
+ 
+========================================================================
+ 
+  Context:
+ 
+  context_nml namelist settings:
+ 
+ &CONTEXT_NML
+ LCOUPLED        = F,
+ LCCSM   = F,
+ B4B_FLAG        = F
+ /
+ 
+ 
+========================================================================
+ 
+ Parallel Ocean Program (POP) 
+ Version 2.1alpha Jan 2005
+ Modified for CCSM 
+ 
+------------------------------------------------------------------------
+ 
+Domain Information
+ 
+------------------------------------------------------------------------
+  Horizontal domain: nx =    320
+                     ny =    384
+  Vertical   domain: km =     40
+  Number of tracers: nt =      2
+  Block size:  nx_block =     44
+               ny_block =     52
+      max_blocks_clinic =      8
+      max_blocks_tropic =      8
+  Processors for baroclinic:      8
+  Processors for barotropic:      8
+  Distribution for baroclinic:  cartesian
+  Distribution for barotropic:  cartesian
+            Distribution file:           
+  Number of ghost cells:  2
+ Active Ocean blocks:     64
+------------------------------------------------------------------------
+ 
+ Grid options
+ 
+  Reading horizontal grid from file:
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/horiz_grid_2001
+ 0402.ieeer8
+ 
+ Using variable thickness surface layer
+  Reading vertical grid from file:
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/in_depths.dat
+ 
+ Vertical grid:
+    k    Thickness (cm)    Depth (cm) 
+   ---   --------------   ------------
+     1     1.00124E+03     5.00622E+02
+     2     1.01126E+03     1.50687E+03
+     3     1.03168E+03     2.52834E+03
+     4     1.06333E+03     3.57585E+03
+     5     1.10751E+03     4.66127E+03
+     6     1.16614E+03     5.79810E+03
+     7     1.24193E+03     7.00214E+03
+     8     1.33861E+03     8.29241E+03
+     9     1.46140E+03     9.69241E+03
+    10     1.61756E+03     1.12319E+04
+    11     1.81737E+03     1.29494E+04
+    12     2.07556E+03     1.48958E+04
+    13     2.41368E+03     1.71404E+04
+    14     2.86382E+03     1.97792E+04
+    15     3.47464E+03     2.29484E+04
+    16     4.32086E+03     2.68462E+04
+    17     5.51681E+03     3.17650E+04
+    18     7.23046E+03     3.81386E+04
+    19     9.67490E+03     4.65913E+04
+    20     1.30039E+04     5.79307E+04
+    21     1.70049E+04     7.29351E+04
+    22     2.07993E+04     9.18372E+04
+    23     2.33569E+04     1.13915E+05
+    24     2.45272E+04     1.37857E+05
+    25     2.48980E+04     1.62570E+05
+    26     2.49832E+04     1.87511E+05
+    27     2.49979E+04     2.12501E+05
+    28     2.49998E+04     2.37500E+05
+    29     2.50000E+04     2.62500E+05
+    30     2.50000E+04     2.87500E+05
+    31     2.50000E+04     3.12500E+05
+    32     2.50000E+04     3.37500E+05
+    33     2.50000E+04     3.62500E+05
+    34     2.50000E+04     3.87500E+05
+    35     2.50000E+04     4.12500E+05
+    36     2.50000E+04     4.37500E+05
+    37     2.50000E+04     4.62500E+05
+    38     2.50000E+04     4.87500E+05
+    39     2.50000E+04     5.12500E+05
+    40     2.50000E+04     5.37500E+05
+ 
+ Reading topography from file:/home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/topography_20010702.ieeei4
+ Partial bottom cells disabled
+ 
+ # surface (T,U) points       86354       83221
+ # ocean   (T,U) points     2698979     2585543
+ T-area,   U-area   (km^2)    3.611481955838864E+08    3.493774296639782E+08
+ T-volume, U-volume (km^3)    1.332328566948622E+09    1.265566738885513E+09
+ 
+ No region masks defined
+ 
+========================================================================
+ 
+  Time Management:
+ 
+  time_manager_nml namelist settings:
+ 
+ &TIME_MANAGER_NML
+ RUNID   = AMUSE                                                                                                                     
+                                                                                                                                     
+   ,
+ TIME_MIX_OPT    = avgfit                                                                                                            
+                                                                                                                                     
+           ,
+ TIME_MIX_FREQ   =          17,
+ IMPCOR  = T,
+ LACCEL  = F,
+ ACCEL_FILE      = depth_accel                                                                                                       
+                                                                                                                                     
+           ,
+ DTUXCEL =   1.00000000000000     ,
+ IYEAR0  =           0,
+ IMONTH0 =           1,
+ IDAY0   =           1,
+ IHOUR0  =           0,
+ IMINUTE0        =           0,
+ ISECOND0        =           0,
+ DT_OPTION       = steps_per_day                                                                                                     
+                                                                                                                                     
+           ,
+ DT_COUNT        =   45.0000000000000     ,
+ STOP_OPTION     = never                                                                                                             
+                                                                                                                                     
+           ,
+ STOP_COUNT      =        9999,
+ DATE_SEPARATOR  =  ,
+ ROBERT_FILTER_WEIGHT    =  1.000000000000000E-002,
+ ROBERT_FILTER_ALPHA     =  0.530000000000000     ,
+ ALLOW_LEAPYEAR  = F,
+ FIT_FREQ        =           1
+ /
+ 
+ 
+ The following information documents the time-step 
+ distribution for one full model day. 
+ 
+  time_mix_freq            =      17
+  fullsteps_per_day        =      45
+  halfsteps_per_day        =       3
+  nsteps_per_day           =      48
+
+     Step     Full/        Time in
+     Number   Half         Seconds
+
+      1        F     1858.064516129032199 
+      2        H     2787.096774193548299 
+      3        F     4645.161290322580498 
+      4        F     6503.225806451612698 
+      5        F     8361.290322580643988 
+      6        F    10219.354838709676187 
+      7        F    12077.419354838708387 
+      8        F    13935.483870967740586 
+      9        F    15793.548387096772785 
+     10        F    17651.612903225803166 
+     11        F    19509.677419354833546 
+     12        F    21367.741935483863926 
+     13        F    23225.806451612894307 
+     14        F    25083.870967741924687 
+     15        F    26941.935483870955068 
+     16        F    28799.999999999985448 
+     17        H    29729.032258064500638 
+     18        F    31587.096774193531019 
+     19        F    33445.161290322561399 
+     20        F    35303.225806451591779 
+     21        F    37161.290322580622160 
+     22        F    39019.354838709652540 
+     23        F    40877.419354838682921 
+     24        F    42735.483870967713301 
+     25        F    44593.548387096743681 
+     26        F    46451.612903225774062 
+     27        F    48309.677419354804442 
+     28        F    50167.741935483834823 
+     29        F    52025.806451612865203 
+     30        F    53883.870967741895583 
+     31        F    55741.935483870925964 
+     32        F    57599.999999999956344 
+     33        F    59458.064516128986725 
+     34        H    60387.096774193501915 
+     35        F    62245.161290322532295 
+     36        F    64103.225806451562676 
+     37        F    65961.290322580593056 
+     38        F    67819.354838709623436 
+     39        F    69677.419354838653817 
+     40        F    71535.483870967684197 
+     41        F    73393.548387096714578 
+     42        F    75251.612903225744958 
+     43        F    77109.677419354775338 
+     44        F    78967.741935483805719 
+     45        F    80825.806451612836099 
+     46        F    82683.870967741866480 
+     47        F    84541.935483870896860 
+     48        F    86399.999999999927240 <-- LAST STEP in day
+  
+                                           hour, min, sec at end of interval =    0   0   0
+ 
+========================================================================
+ 
+Equation of state options
+ 
+------------------------------------------------------------------------
+Using McDougall, Wright ,Jackett and Feistel EOS
+EOS computed as if in valid T,S range
+ 
+------------------------------------------------------------------------
+ 
+ Topographic stress options
+ 
+------------------------------------------------------------------------
+ Topographic stress disabled
+ 
+========================================================================
+ 
+Horizontal mixing options
+ 
+  hmix_nml namelist settings:
+ 
+ &HMIX_NML
+ HMIX_MOMENTUM_CHOICE    = anis                                                                                                      
+                                                                                                                                     
+                   ,
+ HMIX_TRACER_CHOICE      = gent                                                                                                      
+                                                                                                                                     
+                   ,
+ LSUBMESOSCALE_MIXING    = F
+ /
+ 
+------------------------------------------------------------------------
+Anisotropic horizontal momentum mixing used.
+Gent-McWilliams tracer mixing used.
+ 
+========================================================================
+Anisotropic viscosity options:
+ 
+ &HMIX_ANISO_NML
+ HMIX_ALIGNMENT_CHOICE   = east                                                                                                      
+                                                                                                                                     
+                   ,
+ LVARIABLE_HMIX_ANISO    = T,
+ LSMAG_ANISO     = F,
+ VISC_PARA       =   500000000.000000     ,
+ VISC_PERP       =   500000000.000000     ,
+ C_PARA  =   8.00000000000000     ,
+ C_PERP  =   8.00000000000000     ,
+ U_PARA  =   5.00000000000000     ,
+ U_PERP  =   5.00000000000000     ,
+ VCONST_1        =   10000000.0000000     ,
+ VCONST_2        =  0.000000000000000E+000,
+ VCONST_3        =  0.160000000000000     ,
+ VCONST_4        =  2.000000000000000E-008,
+ VCONST_5        =           3,
+ VCONST_6        =   10000000.0000000     ,
+ VCONST_7        =   45.0000000000000     ,
+ SMAG_LAT        =   20.0000000000000     ,
+ SMAG_LAT_FACT   =  0.980000000000000     ,
+ SMAG_LAT_GAUSS  =   98.0000000000000     ,
+ VAR_VISCOSITY_INFILE    = ccsm-internal                                                                                             
+                                                                                                                                     
+                   ,
+ VAR_VISCOSITY_INFILE_FMT        = bin                                                                                               
+                                                                                                                                     
+                           ,
+ VAR_VISCOSITY_OUTFILE   = data/output/var_visc                                                                                      
+                                                                                                                                     
+                   ,
+ VAR_VISCOSITY_OUTFILE_FMT       = nc                                                                                                
+                                                                                                                                     
+                           
+ /
+ 
+  Anisotropy aligned along east-west direction
+Using input anisotropic viscosities:
+   visc_para =    5.00000E+08
+   visc_perp =    5.00000E+08
+Using variable anisotropic parameters:
+   vconst_1  =    1.00000E+07
+   vconst_2  =    0.00000E+00
+   vconst_3  =    1.60000E-01
+   vconst_4  =    2.00000E-08
+   vconst_5  =        3
+   vconst_6  =    1.00000E+07
+   vconst_7  =    4.50000E+01
+Computed variable viscosity output to file: data/output/var_visc
+  vertical level =   1
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   2
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   3
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   4
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   5
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   6
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   7
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   8
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   9
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  10
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  11
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  12
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  13
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  14
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  15
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  16
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  17
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  18
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  19
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  20
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  21
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  22
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  23
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  24
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  25
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  26
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  27
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  28
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  29
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  30
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  31
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  32
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  33
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  34
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  35
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  36
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  37
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  38
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  39
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  40
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+ No such file or directory
+------------------------------------------------------------------------
+ 
+POP aborting...
+ Error opening file
+ 
+------------------------------------------------------------------------
+rank 7 in job 5  emphyrio_50239   caused collective abort of all ranks
+  exit status of rank 7: return code 0 
+rank 6 in job 5  emphyrio_50239   caused collective abort of all ranks
+  exit status of rank 6: return code 0 
+rank 4 in job 5  emphyrio_50239   caused collective abort of all ranks
+  exit status of rank 4: return code 0 
+rank 2 in job 5  emphyrio_50239   caused collective abort of all ranks
+  exit status of rank 2: return code 0 
+rank 1 in job 5  emphyrio_50239   caused collective abort of all ranks
+  exit status of rank 1: return code 0 
+ 
+========================================================================
+ 
+  I/O:
+ 
+ io_nml namelist settings:
+ 
+ &IO_NML
+ NUM_IOTASKS     =           1,
+ LREDIRECT_STDOUT        = F,
+ LOG_FILENAME    = pop.out                                                                                                           
+                                                                                                                                     
+           ,
+ LUSE_POINTER_FILES      = F,
+ POINTER_FILENAME        = pointer                                                                                                   
+                                                                                                                                     
+                   ,
+ LUSE_NF_64BIT_OFFSET    = F
+ /
+ 
+ 
+========================================================================
+ 
+  Grid:
+ 
+  grid_nml namelist settings:
+ 
+ &GRID_NML
+ HORIZ_GRID_OPT  = internal                                                                                                          
+                                                                                                                                     
+           ,
+ VERT_GRID_OPT   = internal                                                                                                          
+                                                                                                                                     
+           ,
+ TOPOGRAPHY_OPT  = internal                                                                                                          
+                                                                                                                                     
+           ,
+ HORIZ_GRID_FILE =                                                                                                                   
+                                                                                                                                     
+           ,
+ VERT_GRID_FILE  =                                                                                                                   
+                                                                                                                                     
+           ,
+ TOPOGRAPHY_FILE =                                                                                                                   
+                                                                                                                                     
+           ,
+ TOPO_SMOOTH     = F,
+ FLAT_BOTTOM     = F,
+ LREMOVE_POINTS  = F,
+ REGION_MASK_FILE        = unknown_region_mask                                                                                       
+                                                                                                                                     
+                   ,
+ REGION_INFO_FILE        = unknown_region_info                                                                                       
+                                                                                                                                     
+                   ,
+ SFC_LAYER_OPT   = varthick                                                                                                          
+                                                                                                                                     
+           ,
+ PARTIAL_BOTTOM_CELLS    = F,
+ BOTTOM_CELL_FILE        = unknown_bottom_cell                                                                                       
+                                                                                                                                     
+                   
+ /
+------------------------------------------------------------------------
+ 
+Tavg options
+ 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+ 
+Movie option
+ 
+------------------------------------------------------------------------
+ 
+========================================================================
+ 
+  Context:
+ 
+  context_nml namelist settings:
+ 
+ &CONTEXT_NML
+ LCOUPLED        = F,
+ LCCSM   = F,
+ B4B_FLAG        = F
+ /
+ 
+ 
+========================================================================
+ 
+ Parallel Ocean Program (POP) 
+ Version 2.1alpha Jan 2005
+ Modified for CCSM 
+ 
+------------------------------------------------------------------------
+ 
+Domain Information
+ 
+------------------------------------------------------------------------
+  Horizontal domain: nx =    320
+                     ny =    384
+  Vertical   domain: km =     40
+  Number of tracers: nt =      2
+  Block size:  nx_block =     44
+               ny_block =     52
+      max_blocks_clinic =      8
+      max_blocks_tropic =      8
+  Processors for baroclinic:      8
+  Processors for barotropic:      8
+  Distribution for baroclinic:  cartesian
+  Distribution for barotropic:  cartesian
+            Distribution file:           
+  Number of ghost cells:  2
+ Active Ocean blocks:     64
+------------------------------------------------------------------------
+ 
+ Grid options
+ 
+  Reading horizontal grid from file:
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/horiz_grid_2001
+ 0402.ieeer8
+ 
+ Using variable thickness surface layer
+  Reading vertical grid from file:
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/in_depths.dat
+ 
+ Vertical grid:
+    k    Thickness (cm)    Depth (cm) 
+   ---   --------------   ------------
+     1     1.00124E+03     5.00622E+02
+     2     1.01126E+03     1.50687E+03
+     3     1.03168E+03     2.52834E+03
+     4     1.06333E+03     3.57585E+03
+     5     1.10751E+03     4.66127E+03
+     6     1.16614E+03     5.79810E+03
+     7     1.24193E+03     7.00214E+03
+     8     1.33861E+03     8.29241E+03
+     9     1.46140E+03     9.69241E+03
+    10     1.61756E+03     1.12319E+04
+    11     1.81737E+03     1.29494E+04
+    12     2.07556E+03     1.48958E+04
+    13     2.41368E+03     1.71404E+04
+    14     2.86382E+03     1.97792E+04
+    15     3.47464E+03     2.29484E+04
+    16     4.32086E+03     2.68462E+04
+    17     5.51681E+03     3.17650E+04
+    18     7.23046E+03     3.81386E+04
+    19     9.67490E+03     4.65913E+04
+    20     1.30039E+04     5.79307E+04
+    21     1.70049E+04     7.29351E+04
+    22     2.07993E+04     9.18372E+04
+    23     2.33569E+04     1.13915E+05
+    24     2.45272E+04     1.37857E+05
+    25     2.48980E+04     1.62570E+05
+    26     2.49832E+04     1.87511E+05
+    27     2.49979E+04     2.12501E+05
+    28     2.49998E+04     2.37500E+05
+    29     2.50000E+04     2.62500E+05
+    30     2.50000E+04     2.87500E+05
+    31     2.50000E+04     3.12500E+05
+    32     2.50000E+04     3.37500E+05
+    33     2.50000E+04     3.62500E+05
+    34     2.50000E+04     3.87500E+05
+    35     2.50000E+04     4.12500E+05
+    36     2.50000E+04     4.37500E+05
+    37     2.50000E+04     4.62500E+05
+    38     2.50000E+04     4.87500E+05
+    39     2.50000E+04     5.12500E+05
+    40     2.50000E+04     5.37500E+05
+ 
+ Reading topography from file:/home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/grid/topography_20010702.ieeei4
+ Partial bottom cells disabled
+ 
+ # surface (T,U) points       86354       83221
+ # ocean   (T,U) points     2698979     2585543
+ T-area,   U-area   (km^2)    3.611481955838864E+08    3.493774296639782E+08
+ T-volume, U-volume (km^3)    1.332328566948622E+09    1.265566738885513E+09
+ 
+ No region masks defined
+ 
+========================================================================
+ 
+  Time Management:
+ 
+  time_manager_nml namelist settings:
+ 
+ &TIME_MANAGER_NML
+ RUNID   = AMUSE                                                                                                                     
+                                                                                                                                     
+   ,
+ TIME_MIX_OPT    = avgfit                                                                                                            
+                                                                                                                                     
+           ,
+ TIME_MIX_FREQ   =          17,
+ IMPCOR  = T,
+ LACCEL  = F,
+ ACCEL_FILE      = depth_accel                                                                                                       
+                                                                                                                                     
+           ,
+ DTUXCEL =   1.00000000000000     ,
+ IYEAR0  =           0,
+ IMONTH0 =           1,
+ IDAY0   =           1,
+ IHOUR0  =           0,
+ IMINUTE0        =           0,
+ ISECOND0        =           0,
+ DT_OPTION       = steps_per_day                                                                                                     
+                                                                                                                                     
+           ,
+ DT_COUNT        =   45.0000000000000     ,
+ STOP_OPTION     = never                                                                                                             
+                                                                                                                                     
+           ,
+ STOP_COUNT      =        9999,
+ DATE_SEPARATOR  =  ,
+ ROBERT_FILTER_WEIGHT    =  1.000000000000000E-002,
+ ROBERT_FILTER_ALPHA     =  0.530000000000000     ,
+ ALLOW_LEAPYEAR  = F,
+ FIT_FREQ        =           1
+ /
+ 
+ 
+ The following information documents the time-step 
+ distribution for one full model day. 
+ 
+  time_mix_freq            =      17
+  fullsteps_per_day        =      45
+  halfsteps_per_day        =       3
+  nsteps_per_day           =      48
+
+     Step     Full/        Time in
+     Number   Half         Seconds
+
+      1        F     1858.064516129032199 
+      2        H     2787.096774193548299 
+      3        F     4645.161290322580498 
+      4        F     6503.225806451612698 
+      5        F     8361.290322580643988 
+      6        F    10219.354838709676187 
+      7        F    12077.419354838708387 
+      8        F    13935.483870967740586 
+      9        F    15793.548387096772785 
+     10        F    17651.612903225803166 
+     11        F    19509.677419354833546 
+     12        F    21367.741935483863926 
+     13        F    23225.806451612894307 
+     14        F    25083.870967741924687 
+     15        F    26941.935483870955068 
+     16        F    28799.999999999985448 
+     17        H    29729.032258064500638 
+     18        F    31587.096774193531019 
+     19        F    33445.161290322561399 
+     20        F    35303.225806451591779 
+     21        F    37161.290322580622160 
+     22        F    39019.354838709652540 
+     23        F    40877.419354838682921 
+     24        F    42735.483870967713301 
+     25        F    44593.548387096743681 
+     26        F    46451.612903225774062 
+     27        F    48309.677419354804442 
+     28        F    50167.741935483834823 
+     29        F    52025.806451612865203 
+     30        F    53883.870967741895583 
+     31        F    55741.935483870925964 
+     32        F    57599.999999999956344 
+     33        F    59458.064516128986725 
+     34        H    60387.096774193501915 
+     35        F    62245.161290322532295 
+     36        F    64103.225806451562676 
+     37        F    65961.290322580593056 
+     38        F    67819.354838709623436 
+     39        F    69677.419354838653817 
+     40        F    71535.483870967684197 
+     41        F    73393.548387096714578 
+     42        F    75251.612903225744958 
+     43        F    77109.677419354775338 
+     44        F    78967.741935483805719 
+     45        F    80825.806451612836099 
+     46        F    82683.870967741866480 
+     47        F    84541.935483870896860 
+     48        F    86399.999999999927240 <-- LAST STEP in day
+  
+                                           hour, min, sec at end of interval =    0   0   0
+ 
+========================================================================
+ 
+Equation of state options
+ 
+------------------------------------------------------------------------
+Using McDougall, Wright ,Jackett and Feistel EOS
+EOS computed as if in valid T,S range
+ 
+------------------------------------------------------------------------
+ 
+ Topographic stress options
+ 
+------------------------------------------------------------------------
+ Topographic stress disabled
+ 
+========================================================================
+ 
+Horizontal mixing options
+ 
+  hmix_nml namelist settings:
+ 
+ &HMIX_NML
+ HMIX_MOMENTUM_CHOICE    = anis                                                                                                      
+                                                                                                                                     
+                   ,
+ HMIX_TRACER_CHOICE      = gent                                                                                                      
+                                                                                                                                     
+                   ,
+ LSUBMESOSCALE_MIXING    = F
+ /
+ 
+------------------------------------------------------------------------
+Anisotropic horizontal momentum mixing used.
+Gent-McWilliams tracer mixing used.
+ 
+========================================================================
+Anisotropic viscosity options:
+ 
+ &HMIX_ANISO_NML
+ HMIX_ALIGNMENT_CHOICE   = east                                                                                                      
+                                                                                                                                     
+                   ,
+ LVARIABLE_HMIX_ANISO    = T,
+ LSMAG_ANISO     = F,
+ VISC_PARA       =   500000000.000000     ,
+ VISC_PERP       =   500000000.000000     ,
+ C_PARA  =   8.00000000000000     ,
+ C_PERP  =   8.00000000000000     ,
+ U_PARA  =   5.00000000000000     ,
+ U_PERP  =   5.00000000000000     ,
+ VCONST_1        =   10000000.0000000     ,
+ VCONST_2        =  0.000000000000000E+000,
+ VCONST_3        =  0.160000000000000     ,
+ VCONST_4        =  2.000000000000000E-008,
+ VCONST_5        =           3,
+ VCONST_6        =   10000000.0000000     ,
+ VCONST_7        =   45.0000000000000     ,
+ SMAG_LAT        =   20.0000000000000     ,
+ SMAG_LAT_FACT   =  0.980000000000000     ,
+ SMAG_LAT_GAUSS  =   98.0000000000000     ,
+ VAR_VISCOSITY_INFILE    = ccsm-internal                                                                                             
+                                                                                                                                     
+                   ,
+ VAR_VISCOSITY_INFILE_FMT        = bin                                                                                               
+                                                                                                                                     
+                           ,
+ VAR_VISCOSITY_OUTFILE   = data/output/var_visc                                                                                      
+                                                                                                                                     
+                   ,
+ VAR_VISCOSITY_OUTFILE_FMT       = nc                                                                                                
+                                                                                                                                     
+                           
+ /
+ 
+  Anisotropy aligned along east-west direction
+Using input anisotropic viscosities:
+   visc_para =    5.00000E+08
+   visc_perp =    5.00000E+08
+Using variable anisotropic parameters:
+   vconst_1  =    1.00000E+07
+   vconst_2  =    0.00000E+00
+   vconst_3  =    1.60000E-01
+   vconst_4  =    2.00000E-08
+   vconst_5  =        3
+   vconst_6  =    1.00000E+07
+   vconst_7  =    4.50000E+01
+Computed variable viscosity output to file: data/output/var_visc
+  vertical level =   1
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   2
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   3
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   4
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   5
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   6
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   7
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   8
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =   9
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  10
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  11
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  12
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  13
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  14
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  15
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  16
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  17
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  18
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  19
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  20
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  21
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  22
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  23
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  24
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  25
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  26
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  27
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  28
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  29
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  30
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  31
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  32
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  33
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  34
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  35
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  36
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  37
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  38
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  39
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+  vertical level =  40
+  Min F_PARA =  1.00000E+07   Max F_PARA =  7.16758E+07
+  Min F_PERP =  1.00000E+07   Max F_PERP =  7.16758E+07
+ 
+  
+  Document Namelist Parameters:
+  ============================ 
+  
+ &HMIX_GM_NML
+ KAPPA_ISOP_CHOICE       = constant                                                                                                  
+                                                                                                                                     
+                   ,
+ KAPPA_THIC_CHOICE       = constant                                                                                                  
+                                                                                                                                     
+                   ,
+ KAPPA_FREQ_CHOICE       = never                                                                                                     
+                                                                                                                                     
+                   ,
+ SLOPE_CONTROL_CHOICE    = notanh                                                                                                    
+                                                                                                                                     
+                   ,
+ KAPPA_DEPTH_1   =   1.00000000000000     ,
+ KAPPA_DEPTH_2   =  0.000000000000000E+000,
+ KAPPA_DEPTH_SCALE       =   150000.000000000     ,
+ AH      =   6000000.00000000     ,
+ AH_BOLUS        =   6000000.00000000     ,
+ USE_CONST_AH_BKG_SRFBL  = T,
+ AH_BKG_SRFBL    =  0.000000000000000E+000,
+ AH_BKG_BOTTOM   =  0.000000000000000E+000,
+ SLM_R   =  0.300000000000000     ,
+ SLM_B   =  0.300000000000000     ,
+ DIAG_GM_BOLUS   = F,
+ TRANSITION_LAYER_ON     = F,
+ READ_N2_DATA    = F,
+ BUOYANCY_FREQ_FILENAME  = unknown-buoyancy                                                                                          
+                                                                                                                                     
+                   ,
+ BUOYANCY_FREQ_FMT       = nc                                                                                                        
+                                                                                                                                     
+                   ,
+ CONST_EG        =   1.00000000000000     ,
+ GAMMA_EG        =   300.000000000000     ,
+ KAPPA_MIN_EG    =   3500000.00000000     ,
+ KAPPA_MAX_EG    =   50000000.0000000     
+ /
+  
+   Gent-McWilliams options:
+     kappa_isop choice is constant
+     kappa_thic choice is constant
+     kappa computation frequency choice is never
+     slope control choice is notanh
+ isopycnal diffusion      =  6.000000E+06
+ thickness diffusion      =  6.000000E+06
+ backgroud diff. (bottom) =  0.000000E+00
+ backgroud diff. (srfbl)  =  0.000000E+00
+ max. slope for redi      =  3.000000E-01
+ max. slope for bolus     =  3.000000E-01
+
+ Maximum horizontal background diffusion coefficient
+  within the boundary layer is constant at ah_bkg_srfbl.
+ 
+========================================================================
+ 
+  Tidal mixing information
+ 
+  tidal_nml namelist settings:
+ 
+ &TIDAL_NML
+ LTIDAL_MIXING   = F,
+ LOCAL_MIXING_FRACTION   =  0.330000000000000     ,
+ MIXING_EFFICIENCY       =  0.200000000000000     ,
+ VERTICAL_DECAY_SCALE    =   50000.0000000000     ,
+ TIDAL_ENERGY_FILE       = unknown_tidal_energy_file                                                                                 
+                                                                                                                                     
+                   ,
+ TIDAL_MIX_MAX   =   100.000000000000     ,
+ TIDAL_ENERGY_FILE_FMT   = bin                                                                                                       
+                                                                                                                                     
+                   
+ /
+ 
+ ltidal_mixing          =         F
+ local_mixing_fraction  =    3.30000E-01
+ mixing_efficiency      =    2.00000E-01
+ vertical_decay_scale   =    5.00000E+04
+ tidal_energy_file      =   unknown_tidal_energy_file                                                       
+ 
+========================================================================
+ 
+    Vertical mixing options
+ 
+------------------------------------------------------------------------
+ Implicit vertical mixing enabled
+  Using KPP vertical mixing     
+  aidif         =   1.00000E+00
+  bottom_drag   =   1.00000E-03
+ Convection simulated by strong diffusion
+   convect_diff =  1.000E+03
+   convect_visc =  1.000E+03
+ Bottom geothermal heat flux disabled
+------------------------------------------------------------------------
+ 
+  vmix_kpp_nml namelist settings:
+ 
+ &VMIX_KPP_NML
+ BCKGRND_VDC1    =  0.524000000000000     ,
+ BCKGRND_VDC2    =  0.313000000000000     ,
+ BCKGRND_VDC_EQ  =  1.000000000000000E-002,
+ BCKGRND_VDC_PSIM        =  0.130000000000000     ,
+ BCKGRND_VDC_BAN =   1.00000000000000     ,
+ BCKGRND_VDC_DPTH        =   100000.000000000     ,
+ BCKGRND_VDC_LINV        =  4.500000000000000E-005,
+ PRANDTL =   10.0000000000000     ,
+ RICH_MIX        =   50.0000000000000     ,
+ NUM_V_SMOOTH_RI =           1,
+ LRICH   = T,
+ LDBL_DIFF       = T,
+ LSHORT_WAVE     = T,
+ LCHECKEKMO      = F,
+ LHORIZ_VARYING_BCKGRND  = F,
+ LLANGMUIR       = F,
+ LINERTIAL       = F
+ /
+ 
+   bckgrnd_vdc1              =   5.24000E-01
+   bckgrnd_vdc2              =   3.13000E-01
+   bckgrnd_vdc_dpth          =   1.00000E+05
+   bckgrnd_vdc_linv          =   4.50000E-05
+   bckgrnd_vdc_eq            =   1.00000E-02
+   bckgrnd_vdc_psim          =   1.30000E-01
+   bckgrnd_vdc_ban           =   1.00000E+00
+   Prandtl                   =   1.00000E+01
+   rich_mix                  =   5.00000E+01
+   Ri mixing                 =        T
+   double-diff               =        T
+   short_wave                =        T
+   lcheckekmo                =        F
+   num_smooth_Ri             =      1
+   lhoriz_varying_bckgrnd    =        F
+   langmuir parameterization =        F
+   inertial mixing param.    =        F
+ 
+Vertical Profile for background diffusivity
+  0.101454E+00
+  0.102144E+00
+  0.102862E+00
+  0.103618E+00
+  0.104421E+00
+  0.105287E+00
+  0.106232E+00
+  0.107278E+00
+  0.108453E+00
+  0.109797E+00
+  0.111363E+00
+  0.113229E+00
+  0.115511E+00
+  0.118386E+00
+  0.122146E+00
+  0.127291E+00
+  0.134752E+00
+  0.146422E+00
+  0.166645E+00
+  0.207136E+00
+  0.306182E+00
+  0.555401E+00
+  0.791864E+00
+  0.885036E+00
+  0.925520E+00
+  0.947217E+00
+  0.960590E+00
+  0.969624E+00
+  0.976125E+00
+  0.981024E+00
+  0.984846E+00
+  0.987910E+00
+  0.990421E+00
+  0.992516E+00
+  0.994291E+00
+  0.995813E+00
+  0.997133E+00
+  0.998288E+00
+  0.999308E+00
+  0.100022E+01
+ 
+------------------------------------------------------------------------
+ Solver options (barotropic solver)
+------------------------------------------------------------------------
+ 
+Solver choice: ChronGear
+Solver converged for err <  1.000000000000000E-12
+Solver maximum iterations:       1000
+Check convergence every         25 iterations
+Preconditioner choice: diagonal
+ 
+========================================================================
+ Pressure gradient options
+ 
+------------------------------------------------------------------------
+ Pressure averaging enabled 
+ Density correction disabled
+ 
+========================================================================
+ 
+  Baroclinic:
+ 
+  baroclinic_nml namelist settings:
+ 
+ &BAROCLINIC_NML
+ RESET_TO_FREEZING       = F
+ /
+ 
+------------------------------------------------------------------------
+Baroclinic options
+ 
+------------------------------------------------------------------------
+Surface temperature reset to freezing off
+ 
+========================================================================
+ 
+ Ice:
+ 
+  ice_nml namelist settings:
+ 
+ &ICE_NML
+ KMXICE  =           1,
+ ICE_FREQ_OPT    = never                                                                                                             
+                                                                                                                                     
+           ,
+ ICE_FREQ        =      100000,
+ LACTIVE_ICE     = F
+ /
+------------------------------------------------------------------------
+Ice formation disabled
+ 
+========================================================================
+ 
+  Initial T,S:
+ 
+  init_ts_nml namelist settings:
+ 
+ &INIT_TS_NML
+ INIT_TS_OPTION  = restart                                                                                                           
+                                                                                                                                     
+           ,
+ INIT_TS_FILE    = /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/restart/r.x1_SAMOC_control.00750101                    
+                                                                                                                                     
+           ,
+ INIT_TS_FILE_FMT        = bin                                                                                                       
+                                                                                                                                     
+                   ,
+ INIT_TS_SUBOPTION       = rest                                                                                                      
+                                                                                                                                     
+                   ,
+ INIT_TS_OUTFILE = unknown_init_ts_outfile                                                                                           
+                                                                                                                                     
+           ,
+ INIT_TS_OUTFILE_FMT     = bin                                                                                                       
+                                                                                                                                     
+                   
+ /
+ 
+Initial T,S read from restart file:/home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/restart/r.x1_SAMOC_control.00750101
+ 
+  file read: 
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/restart/r.x1_SAMOC_c
+ ontrol.00750101
+ 
+========================================================================
+ 
+       Time Information
+ 
+------------------------------------------------------------------------
+ 
+Run id: x1_SAMOC_control
+ 
+This simulation started from
+       date(month-day-year):  01-01-0000
+                      hour:           0
+                    minute:           0
+                    second:           0
+ 
+This run        started from
+       date(month-day-year):  01-01-0075
+                      hour:           0
+                    minute:           0
+                    second:           0
+                      step:     1314000
+ 
+This run will terminate 
+at 00:00:00 on
+       date(month-day-year):  01-01-9999
+upon receipt of stop signal from external source (eg, cpl)
+unless a stop signal is received from external source (eg, cpl)
+ 
+Starting elapsed time in    
+                     years:            75.000
+                    months:           900.000
+                      days:         27375.000
+                     hours:        657000.000
+                   seconds:    2365200000.000
+ 
+Automatic time step option (auto_dt) disabled
+ 
+dt_count = 4.500000E+01
+There are     45 full  steps each day
+There are      3 half  steps each day
+There are     48 total steps each day
+ 
+time_mix_freq =     17
+Time mixing option:
+  avgfit -- time averaging
+  with timestep chosen to fit exactly into one day or coupling interval
+ 
+Averaging time steps at the 2nd and    17th step of every day or coupled interval 
+ 
+Surface tracer     time step = 1.858065E+03 seconds
+Surface momentum   time step = 1.858065E+03 seconds
+Surface barotropic time step = 1.858065E+03 seconds
+ 
+Tracer acceleration disabled
+ 
+Leap years not allowed
+ 
+Implicit treatment of Coriolis terms (impcor):  ON
+ 
+========================================================================
+ 
+Forcing options
+ 
+------------------------------------------------------------------------
+ WARNING: Input header file does not exist
+ for file: 
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/ws_monthly/ws.1958-2
+ 000.mon.hdr
+ Assuming fields will be read in sequential order
+ 
+ WS Monthly file read: /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/ws_monthly/ws.1958-2000.mon
+Surface Wind Stress:monthly-calendar
+Surface Wind Stress data interpolated every timestep
+Surface Wind Stress Interpolation type: linear
+ 
+ WARNING: Input header file does not exist
+ for file: 
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/shf_monthly/shf.norm
+ al_year+flux.mon.hdr
+ Assuming fields will be read in sequential order
+ 
+ SHF Monthly file read: /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/shf_monthly/shf.normal_year+flux.mon
+Surface Heat Flux:monthly-calendar normal-year+flux
+Surface Heat Flux data interpolated every timestep
+Surface Heat Flux Interpolation type: linear
+ 
+ WARNING: Input header file does not exist
+ for file: 
+ /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/sfwf/sfwf_phc0-50_nc
+ arp_r46_flux.mon.hdr
+ Assuming fields will be read in sequential order
+ 
+ SFWF Monthly file read: /home/inti/code/amuse/trunk/sandbox/pelupes/pop/data/input/sfwf/sfwf_phc0-50_ncarp_r46_flux.mon
+Surface Fresh Water Flux:monthly-calendar bulk-NCEP
+Surface Fresh Water Flux data interpolated every timestep
+Surface Fresh Water Flux Interpolation type: linear
+ 
+    Fresh water flux input as virtual salt flux
+No Interior Potential Temperature Forcing
+ 
+No Interior Salinity Forcing
+ 
+No Surface Atmospheric Pressure
+ 
+  
+  Document Namelist Parameters:
+  ============================ 
+  
+ &PASSIVE_TRACERS_ON_NML
+ IAGE_ON = F,
+ DYE_ON  = F
+ /
+  
+------------------------------------------------------------------------
+ TRACER INDEX    TRACER NAME
+      1          TEMP
+      2          SALT
+------------------------------------------------------------------------
+ 
+========================================================================
+ 
+  Advection:
+ 
+  advect_nml namelist settings:
+ 
+ &ADVECT_NML
+ TADVECT_CTYPE   = lw_lim                                                                                                            
+                                                                                                                                     
+           
+ /
+ 
+------------------------------------------------------------------------
+ 
+Advection options
+ 
+------------------------------------------------------------------------
+ Using lw_lim for all tracers.
+ 
+========================================================================
+ 
+  Short-wave absorption:
+ 
+  sw_absorption namelist  
+ 
+ &SW_ABSORPTION_NML
+ SW_ABSORPTION_TYPE      = jerlov                                                                                                    
+                                                                                                                                     
+                   ,
+ JERLOV_WATER_TYPE       =           3,
+ CHL_OPTION      = file                                                                                                              
+                                                                                                                                     
+           ,
+ CHL_FILENAME    = unknown-chl                                                                                                       
+                                                                                                                                     
+           ,
+ CHL_FILE_FMT    = bin                                                                                                               
+                                                                                                                                     
+           
+ /
+ 
+ 
+------------------------------------------------------------------------
+ 
+Diagnostic options
+ 
+------------------------------------------------------------------------
+Global    diagnostics computed every        1 days   
+Global diagnostics written to file: diag.x1_SAMOC_control.00750101
+CFL       diagnostics computed every        1 days   
+CFL diagnostics written to file: diag.x1_SAMOC_control.00750101
+Transport diagnostics computed every        1 days   
+Transport diagnostics written to file: tran.x1_SAMOC_control.00750101
+ 
+The following   17 transports will be computed
+  Drake Passage
+  Mozambique Channel
+  Bering Strait
+  Northwest Passage
+  Davis Strait
+  Hudson Strait
+  Denmark Strait
+  Iceland-Ireland
+  Fram Strait
+  Barents Sea
+  Indonesian Throughflow I
+  Indonesian Throughflow II
+  Indonesian Throughflow III
+  Florida Strait
+  Windward Passage I
+  Windward Passage II
+  Gibraltar
+ 
+========================================================================
+ 
+ History output options
+ 
+------------------------------------------------------------------------
+History output disabled
+ 
+========================================================================
+ 
+  Movie:
+ 
+  movie_nml namelist settings:
+ 
+ &MOVIE_NML
+ MOVIE_FREQ_OPT  = never                                                                                                             
+                                                                                                                                     
+           ,
+ MOVIE_FREQ      =           1,
+ MOVIE_OUTFILE   =                                                                                                                   
+                                                                                                                                     
+           ,
+ MOVIE_CONTENTS  = movie_contents                                                                                                    
+                                                                                                                                     
+           ,
+ MOVIE_FMT       = bin                                                                                                               
+                                                                                                                                     
+           
+ /
+ 
+movie diagnostics of
+tavg diagnostics off
+------------------------------------------------------------------------
+ 
+Drifter options
+ 
+------------------------------------------------------------------------
+float diagnostics of
+ 
+========================================================================
+ 
+  POP_check: Check for Option Inconsistencies
+ 
+ 
+     No warning messages generated                                                                                                                                                                                                                                   
+ 
+     No fatal error conditions detected                                                                                                                                                                                                                              
+========================================================================
+ 
+  Constants used in this run:
+ 
+                     grav =     9.806000000000000E+02  cm/s^2
+                    omega =     7.292123625000001E-05  rad/s
+                   radius =     6.370000000000000E+08  cm
+                    cp_sw =     3.996000000000000E+07  erg/g/K
+                   cp_air =     1.005000000000000E+03  J/kg/K
+                  rho_air =     1.200000000000000E+00  kg/m^3
+                   rho_sw =     1.026026026026026E+00  g/cm^3
+                   rho_fw =     1.000000000000000E+00  g/cm^3
+                    sound =     1.500000000000000E+05  cm/s
+                   vonkar =     4.000000000000000E-01   
+               emissivity =     1.000000000000000E+00   
+         stefan_boltzmann =     5.670000000000000E-08  W/m^2/K^4
+        latent_heat_vapor =     2.500000000000000E+06  J/kg
+       latent_heat_fusion =     3.340000000000000E+09  erg/g
+         ocn_ref_salinity =     3.470000000000000E+01  psu
+         sea_ice_salinity =     4.000000000000000E+00  psu
+                T0_Kelvin =     2.731600000000000E+02  K
+                       pi =     3.141592653589793E+00   
+ 
+========================================================================
+ 
+ get_element_surface_state() called with n=      122880
+ 
+annual change in SSH:  -6.630903429158812E-13
+   precip_adjustment: volume-averaged salinity tendency =  1.157312994412214E-17
+  sal_tendency BEFORE fwf_imposed:  -1.230402614211929E-009
+   precip_adjustment: 
+   sal_tendency (kg/m^2/s): -1.385703608112650E-06
+    fw_tendency (kg/m^2/s): -1.241921470091905E-13
+ Changed precipitation factor to 0.12568020E+01

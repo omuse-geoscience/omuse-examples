@@ -1,0 +1,56 @@
+ECHO: Application launched with: /home/inti/code/amuse/amuse/src/omuse/community/adcirc/adcirc_worker 52136 emphyrio
+ WARNING: The command line option '52' is not valid and will be ignored.
+ WARNING: The command line option 'em' is not valid and will be ignored.
+ WARNING: The command line option 'tr' is not valid and will be ignored.
+ INFO: The ROOTDIR is  '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+ INFO: The INPUTDIR is '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+ INFO: The GBLINPUTDIR is '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+ INFO: The GLOBALDIR is '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+ INFO: The LOCALDIR is '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+ INFO: The HOTSTARTDIR is '
+ /home/inti/code/amuse/trunk/sandbox/pelupes/omuse-examples/coupled_pop_adcirc'.
+
+ _______________________________________________________________________________
+
+
+                   PROGRAM ADCIRC   VERSION 51.52.07
+
+     AN ADVANCED CIRCULATION MODEL FOR SHELVES, COASTAL SEAS AND ESTUARIES
+
+
+       -  DEVELOPED BY
+
+          R.A. LUETTICH, JR
+            UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL
+            INSTITUTE OF MARINE SCIENCES
+
+          J.J. WESTERINK 
+            DEPARTMENT OF CIVIL ENGINEERING AND GEOLOGICAL SCIENCES
+            UNIVERSITY OF NOTRE DAME
+
+
+       -  THE ADCIRC SOURCE CODE IS COPYRIGHTED BY
+
+          R.A. LUETTICH, JR. AND J.J. WESTERINK, 1994-2006
+
+       NO PART OF THIS CODE MAY BE REPRODUCED OR REDISTRIBUTED
+          WITHOUT THE WRITTEN PERMISSION OF THE AUTHORS
+
+
+
+ _______________________________________________________________________________
+INFO: initializeMesh: THE NEIGHBOR TABLE IS BEING COMPUTED.
+INFO: initializeMesh: THE NEIGHBOR TABLE IS COMPLETED. THE MINIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 3. 1+THE MAXIMUM NUMBER OF NEIGHBORS FOR ANY NODE = 10. THE PARAMETER MNEI CAN BE SET AS SMALL AS 10.
+ADCIRC Version is 51.52.07                                                                        
+
+ _______________________________________________________________________________
+
+
+ LIMITED RUNTIME INFORMATION SECTION 
+
+
