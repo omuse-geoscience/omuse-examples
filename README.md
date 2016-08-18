@@ -1,3 +1,3 @@
 # README #
 
-Examples of the use of OMUSE
+Example OMUSE scripts
