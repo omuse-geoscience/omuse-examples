@@ -191,10 +191,7 @@ class plot_swh(object):
         cb.set_label("atmospheric pressure (mbar)")
 
         m0=self.moment(self.f,self.dlf,self.dtheta,self.nodes.ac2,0)
-        m1=self.moment(self.f,self.dlf,self.dtheta,self.nodes.ac2,1)
-
         swh=4*(m0)**0.5
-        tm01=m0/m1
                       
         self.f2.cla()      
         val=swh.value_in(units.m)
