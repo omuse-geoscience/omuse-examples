@@ -1,5 +1,5 @@
 """
-script to to calculate wave field during hurricane evolution.
+script to calculate wave field during hurricane evolution.
 
 The computational domain is the north western atlantic (from the example 
 grid at http://www.caseydietrich.com). SWAN is used to calculate the 
@@ -192,8 +192,6 @@ class plot_swh(object):
 
         m0=self.moment(self.f,self.dlf,self.dtheta,self.nodes.ac2,0)
         swh=4*(m0)**0.5
-                      
-        self.f2.cla()      
         val=swh.value_in(units.m)
         im=self.f2.tripcolor(self.triangulation,val,shading='gouraud',cmap="bwr")
         self.f2.triplot(self.triangulation,lw=0.25)
