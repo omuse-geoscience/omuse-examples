@@ -5,7 +5,7 @@ basin forced with a constant, lattitude dependend wind, replicating the
 (single-gyre) setup of Viebahn 2014 (International Journal of Bifurcation 
 and Chaos, Vol. 24, No. 2).
 
-Plots the stream function upon completion.
+Plots the sea surface height upon completion.
 """
 
 import numpy
