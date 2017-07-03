@@ -42,7 +42,7 @@ def TestHaringvliet_Zijlema2010(flow=0.0521 | units.rev/units.s,
     ncells=len(elements)
     nverts=len(nodes)
       
-    s=Swan(grid_type="unstructured",redirection="none",channel_type="sockets")
+    s=Swan(grid_type="unstructured",redirection="none")
     
     s.parameters.number_of_cells=ncells
     s.parameters.number_of_vertices=nverts
@@ -83,10 +83,13 @@ def TestHaringvliet_Zijlema2010(flow=0.0521 | units.rev/units.s,
 
     s.forcings.depth=bathymetry | units.m
             
+    print "calculating equilibrium...(this may take a while)"
     s.evolve_model(0. | units.s)
 
     write_set_to_file(s.nodes,"nodes.amuse","amuse",append_to_file=False)
     write_set_to_file(s.elements,"elements.amuse","amuse",append_to_file=False)
+
+    s.stop()
 
 def new_option_parser():
     from amuse.units.optparse import OptionParser
