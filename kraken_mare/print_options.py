@@ -1,4 +1,4 @@
-import cPickle
+import pickle
 import os
 
 def my_option_parser():
@@ -16,11 +16,11 @@ if __name__=="__main__":
     try:
       label=a2[0] if a2 else o2.argfile
       if os.path.isfile(label):
-        print label, "exists"
-        print
+        print(label, "exists")
+        print()
       f=open(label,"r")
-      kwargs=cPickle.load(f)
+      kwargs=pickle.load(f)
       for k in kwargs:
-        print k,kwargs[k]
+        print(k,kwargs[k])
     except:
       raise

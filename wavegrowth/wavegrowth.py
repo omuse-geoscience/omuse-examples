@@ -3,7 +3,7 @@ script to calculate growth of wave as function of fetch using SWAN
 """
 
 import numpy
-import cPickle
+import pickle
 
 from omuse.units import units
 
@@ -12,7 +12,7 @@ from omuse.community.swan.interface import Swan
 from amuse.io import write_set_to_file
 
 def rectangle(**kwargs):
-    print "calculating..."
+    print("calculating...")
     
     L=kwargs.get("L", 100 | units.km)
     N=kwargs.get("N",100)
@@ -62,9 +62,9 @@ def rectangle(**kwargs):
   
     label=str(abs(hash(str(kwargs))))
     with open(label+".args","w") as f:
-        cPickle.dump(kwargs,f)
+        pickle.dump(kwargs,f)
     write_set_to_file(s.grid,label+".amuse","amuse",append_to_file=False)
-    print "done"
+    print("done")
 
 def new_option_parser(usage=None):
     from amuse.units.optparse import OptionParser

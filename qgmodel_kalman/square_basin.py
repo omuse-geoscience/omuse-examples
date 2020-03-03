@@ -47,14 +47,14 @@ def viebahn2014_qgmodel(N=50,
   
   
     if verbose:
-      print "Viebahn 2014 setup"
-      print "N=%i, Reynolds_number=%f"%(N,reynolds_number)
-      print "dm (derived):", (A_H/beta0)**(1./3)/L
-      print "tau:", tau.value_in(units.Pa)
-      print "A:", A_H
-      print "timescale:", timescale.in_(units.s)
-      print "delta_m:", delta_m
-      print "delta_i:", delta_i
+      print("Viebahn 2014 setup")
+      print("N=%i, Reynolds_number=%f"%(N,reynolds_number))
+      print("dm (derived):", (A_H/beta0)**(1./3)/L)
+      print("tau:", tau.value_in(units.Pa))
+      print("A:", A_H)
+      print("timescale:", timescale.in_(units.s))
+      print("delta_m:", delta_m)
+      print("delta_i:", delta_i)
   
     qg=code(redirection="none")
   
@@ -130,10 +130,10 @@ if __name__=="__main__":
         wind_model=wind_model, tau=tau, A_H=A_H)  
   
     if o.dry_run:
-        print "stopping because of --dry_run"
+        print("stopping because of --dry_run")
         sys.exit(0)
   
-    print "Setup complete, starting evolve."
+    print("Setup complete, starting evolve.")
 
     pyplot.ion()
     
@@ -147,7 +147,7 @@ if __name__=="__main__":
   
       model.evolve_model(tnow+dt)
       tnow=model.model_time
-      print "reached: ", tnow.in_(units.day), tnow/tend
+      print("reached: ", tnow.in_(units.day), tnow/tend)
   
       psi=(model.parameters.ocean_depth*model.grid[:,:,0].psi).value_in(units.Sv)
     
@@ -160,12 +160,12 @@ if __name__=="__main__":
       pyplot.draw()
       pyplot.pause(0.01)
 
-    print "done"
+    print("done")
     
-    print psi.shape
-    print psi[0,:10]
-    print psi[-1,:10]
-    print psi[:10,0]
-    print psi[:10,-1]
+    print(psi.shape)
+    print(psi[0,:10])
+    print(psi[-1,:10])
+    print(psi[:10,0])
+    print(psi[:10,-1])
     
-    raw_input()
+    input()

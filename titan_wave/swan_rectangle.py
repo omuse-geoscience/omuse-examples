@@ -1,5 +1,5 @@
 import numpy
-import cPickle
+import pickle
 
 from omuse.community.swan.interface import SwanInterface,Swan
 from omuse.units import units
@@ -20,9 +20,9 @@ def runlabel( **kwargs):
     return str(abs(hash(str(args))))
 
 def rectangle(**kwargs):
-        print "kwargs:", kwargs
+        print("kwargs:", kwargs)
         label=runlabel(**kwargs)
-        print "label:",label
+        print("label:",label)
 
         grav=kwargs["grav"]
         rho_air=kwargs["rho_air"]
@@ -90,7 +90,7 @@ def rectangle(**kwargs):
         s.evolve_model(0. | units.s)
                 
         with open(label+".args","w") as f:
-            cPickle.dump(kwargs,f)
+            pickle.dump(kwargs,f)
         write_set_to_file(s.grid.copy(),label+".amuse","amuse",append_to_file=False)
 
 def new_option_parser(usage=None):

@@ -75,7 +75,7 @@ def plot_swh_ac(**kwargs):
     ax1=fig.add_axes([0.1,0.1,0.8,0.8])
     pyplot.show()
     
-    print "swh:",swh.min().in_(units.m),swh.max().in_(units.m)
+    print("swh:",swh.min().in_(units.m),swh.max().in_(units.m))
     
     x=grid.x[:,0].value_in(units.km)
     y=grid.y[0,:].value_in(units.km)
@@ -92,8 +92,8 @@ def plot_swh_ac(**kwargs):
     xlim=flim/gu2
     ylim=whlim/gu2
 
-    print "scaled fetch:", f.min(),f.max()
-    print "scaled waveheight:", sswh.min(),sswh.max()
+    print("scaled fetch:", f.min(),f.max())
+    print("scaled waveheight:", sswh.min(),sswh.max())
     ax1.plot(y,(jonswap_swh(f)/gu2).value_in(units.m),'r:',lw=1.5)
     ax1.plot(y,(wilson_swh(f)/gu2).value_in(units.m),'g:',lw=1.5)
     ax1.plot(y,(holthuijssen_2006_swh(f)/gu2).value_in(units.m),'b:',lw=1.5)
@@ -114,7 +114,7 @@ def plot_swh_ac(**kwargs):
 
     pyplot.savefig("swh.png")
     
-    raw_input()
+    input()
 
 if __name__=="__main__":
     from wavegrowth import new_option_parser, rectangle

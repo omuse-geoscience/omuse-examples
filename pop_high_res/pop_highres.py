@@ -50,8 +50,8 @@ if __name__=="__main__":
     #start pop
     p = init_pop_highres()
     p.get_model_time()
-    print "POP started in High Resolution mode"
-    print "You may interact with the code using the OMUSE interface, the POP object is called p"
+    print("POP started in High Resolution mode")
+    print("You may interact with the code using the OMUSE interface, the POP object is called p")
 
     #go interactive
     import readline

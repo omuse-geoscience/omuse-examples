@@ -7,13 +7,13 @@ import atexit
 
 def init_das5_only(username, num_nodes, num_cores):
 
-    print "Setting up distributed code"
+    print("Setting up distributed code")
     instance = DistributedAmuse()
     instance.parameters.debug = False
     instance.parameters.worker_queue_timeout=1 | units.hour
 
     instance.parameters.webinterface_port = 4556
-    print "url:", instance.get_webinterface_url()
+    print("url:", instance.get_webinterface_url())
     instance.commit_parameters()
 
     #print "Resources:"
@@ -38,7 +38,7 @@ def init_das5_only(username, num_nodes, num_cores):
 
     #~ print "Reservations:"
     #~ print instance.pilots
-    print "Waiting for reservations"
+    print("Waiting for reservations")
     instance.wait_for_pilots()
 
     return instance

@@ -1,6 +1,6 @@
 import os
 import numpy
-import cPickle
+import pickle
 
 from mpl_toolkits.basemap import Basemap
 from matplotlib import pyplot,tri
@@ -98,7 +98,7 @@ if __name__=="__main__":
       if not os.path.isfile(argfile):
         raise Exception( argfile+" does not exists")
       f=open(argfile,"r")
-      kwargs=cPickle.load(f)
+      kwargs=pickle.load(f)
       f.close()
     else:
       kwargs=vars(o)

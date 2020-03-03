@@ -38,14 +38,14 @@ def viebahn2014_qgmodel(N=50,
     delta_i=(U/beta0)**0.5/L
     timescale=1./(beta0*L)
   
-    print "Viebahn 2014 setup"
-    print "N=%i, Reynolds_number=%f"%(N,reynolds_number)
-    print "dm (derived):", (A_H/beta0)**(1./3)/L
-    print "tau:", tau.value_in(units.Pa)
-    print "A:", A_H
-    print "timescale:", timescale.in_(units.s)
-    print "delta_m:", delta_m
-    print "delta_i:", delta_i
+    print("Viebahn 2014 setup")
+    print("N=%i, Reynolds_number=%f"%(N,reynolds_number))
+    print("dm (derived):", (A_H/beta0)**(1./3)/L)
+    print("tau:", tau.value_in(units.Pa))
+    print("A:", A_H)
+    print("timescale:", timescale.in_(units.s))
+    print("delta_m:", delta_m)
+    print("delta_i:", delta_i)
   
     nodes,elements,elev_boundary,flow_boundary=unstructured_square_domain_sets(L=L,N=N)
     nodes.depth=H  
@@ -63,9 +63,9 @@ def viebahn2014_qgmodel(N=50,
     code.parameters.use_interface_met_forcing=True
     code.parameters.use_ramping=True
   
-    print "parameters:"
-    print code.parameters
-    print 
+    print("parameters:")
+    print(code.parameters)
+    print() 
   
     x=code.forcings.x
     y=code.forcings.y
@@ -111,7 +111,7 @@ if __name__=="__main__":
     
     sys=viebahn2014_qgmodel(N=N,H=H, L=L, reynolds_number=reynolds_number)  
   
-    print "Setup complete, starting evolve."
+    print("Setup complete, starting evolve.")
   
     sys.evolve_model(o.tend)
   

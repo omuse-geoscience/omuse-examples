@@ -22,8 +22,8 @@ def test_noisemodel():
 
     field=noisemodel.field()
     
-    print field.std().in_(units.Sv)
-    print ((2*2*noisemodel._dk**4*noisemodel._kspectrum**2).sum()**0.5).in_(units.Sv)
+    print(field.std().in_(units.Sv))
+    print(((2*2*noisemodel._dk**4*noisemodel._kspectrum**2).sum()**0.5).in_(units.Sv))
 
 def test(N=10):
   
@@ -86,11 +86,11 @@ def test(N=10):
 
     observation=modelObservation(reference)
 
-    print "evolve reference model"
+    print("evolve reference model")
 
     observation.evolve_model(0. | units.day)
 
-    print "so far..."
+    print("so far...")
 
     shape=[51,51]
 
@@ -102,7 +102,7 @@ def test(N=10):
     f, ax=pyplot.subplots(ncols=3, figsize=(12,4))
     pyplot.show()
     
-    print kalman.state_variance().max()**0.5
+    print(kalman.state_variance().max()**0.5)
     ax[0].cla()
     psi=reference.parameters.ocean_depth*reference.grid[:,:,0].psi
     psi=psi.value_in(units.Sv)
@@ -115,7 +115,7 @@ def test(N=10):
     
     ax[1].cla()
     state=kalman.state().reshape(shape)
-    print "state:", state.min(), state.max()
+    print("state:", state.min(), state.max())
     ax[1].imshow(state.T, origin="lower")#, vmin=vmin,vmax=vmax)
 
 
@@ -135,7 +135,7 @@ def test(N=10):
         
         kalman.assimilate(observation)
     
-        print "max variance, diff:",kalman.state_variance().max()**0.5,
+        print("max variance, diff:",kalman.state_variance().max()**0.5, end=' ')
         ax[0].cla()
         psi=reference.parameters.ocean_depth*reference.grid[:,:,0].psi
         psi=psi.value_in(units.Sv)
@@ -150,7 +150,7 @@ def test(N=10):
         
         ax[1].cla()
         state=kalman.state().reshape(shape)
-        print abs(psi-state).mean()
+        print(abs(psi-state).mean())
         ax[1].imshow(state.T, origin="lower")#, vmin=vmin,vmax=vmax)
         ax[1].set_title("ensemble mean")
 
@@ -225,11 +225,11 @@ def test_response(N=10):
 
     observation=modelObservation(reference)
 
-    print "evolve reference model"
+    print("evolve reference model")
 
     observation.evolve_model(0. | units.day)
 
-    print "so far..."
+    print("so far...")
 
     shape=[51,51]
 
@@ -241,7 +241,7 @@ def test_response(N=10):
     f, ax=pyplot.subplots(ncols=3, figsize=(12,4))
     pyplot.show()
     
-    print kalman.state_variance().max()**0.5
+    print(kalman.state_variance().max()**0.5)
     ax[0].cla()
     psi=reference.parameters.ocean_depth*reference.grid[:,:,0].psi
     psi=psi.value_in(units.Sv)
@@ -254,7 +254,7 @@ def test_response(N=10):
     
     ax[1].cla()
     state=kalman.state().reshape(shape)
-    print "state:", state.min(), state.max()
+    print("state:", state.min(), state.max())
     ax[1].imshow(state.T, origin="lower")#, vmin=vmin,vmax=vmax)
 
 
@@ -274,7 +274,7 @@ def test_response(N=10):
         
         kalman.assimilate(observation)
     
-        print "max variance, diff:",kalman.state_variance().max()**0.5,
+        print("max variance, diff:",kalman.state_variance().max()**0.5, end=' ')
         ax[0].cla()
         psi=reference.parameters.ocean_depth*reference.grid[:,:,0].psi
         psi=psi.value_in(units.Sv)
@@ -289,7 +289,7 @@ def test_response(N=10):
         
         ax[1].cla()
         state=kalman.state().reshape(shape)
-        print abs(psi-state).mean()
+        print(abs(psi-state).mean())
         ax[1].imshow(state.T, origin="lower")#, vmin=vmin,vmax=vmax)
         ax[1].set_title("ensemble mean")
 

@@ -23,9 +23,9 @@ class read_triangle_mesh(object):
       
       p=f.read_value_rows(*( (NP,)+(int,)+NDIM*(float,)+NATTR*(float,)+NBM*(int,) ) )
   
-      index=map(lambda x: x[0],p)
-      pos=map(lambda x: x[1:3],p)
-      vmark=map(lambda x: x[3],p)
+      index=[x[0] for x in p]
+      pos=[x[1:3] for x in p]
+      vmark=[x[3] for x in p]
       index=numpy.array(index)-1
       self.p=numpy.array(pos)[index]
       self.vmark=numpy.array(vmark)[index]
@@ -39,8 +39,8 @@ class read_triangle_mesh(object):
       assert NPT==3
             
       t=f.read_value_rows(*( (NE,)+(int,)+NPT*(int,)+NEATTR*(float,)) )
-      index=map(lambda x: x[0],t)
-      ele=map(lambda x: x[1:4],t)
+      index=[x[0] for x in t]
+      ele=[x[1:4] for x in t]
       index=numpy.array(index)-1
       self.t=numpy.array(ele)[index]-1
   
@@ -89,7 +89,7 @@ if __name__=="__main__":
     rt=read_triangle_mesh("f32hari")
     rt.read_grid()
     nodes,elements=rt.get_sets()
-    print nodes,elements
+    print(nodes,elements)
 
     x=nodes.x.number
     y=nodes.y.number
@@ -99,8 +99,8 @@ if __name__=="__main__":
     n3=elements.n3[:]
 
     elements=numpy.column_stack((n1,n2,n3))
-    print elements.min(),elements.max()
-    print len(nodes)
+    print(elements.min(),elements.max())
+    print(len(nodes))
     triangulation=tri.Triangulation(x,y,elements)
         
     pyplot.figure(figsize=(14,8))

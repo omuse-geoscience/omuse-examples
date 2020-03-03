@@ -1,5 +1,5 @@
 import numpy
-import cPickle
+import pickle
 
 from omuse.community.swan.interface import SwanInterface,Swan
 from omuse.units import units
@@ -39,7 +39,7 @@ def swan_eq(**kwargs):
         msc=kwargs["msc"]
         mdc=kwargs["mdc"]
 
-        print kwargs
+        print(kwargs)
 
         nodes=read_set_from_file("kraken_nodes","amuse",close_file=True)
         elements=read_set_from_file("kraken_elements","amuse",close_file=True)
@@ -80,7 +80,7 @@ def swan_eq(**kwargs):
         #~ s.parameters.uniform_wind_velocity=u10
         #~ s.parameters.uniform_wind_direction=udir
 
-        print s.parameters
+        print(s.parameters)
         #~ raise
 
         channel=nodes.new_channel_to(s.nodes)
@@ -133,9 +133,9 @@ def swan_eq(**kwargs):
         s.evolve_model(0. | units.s)
                         
         label=runlabel(**kwargs)
-        print "label:",label
+        print("label:",label)
         with open("args_"+label+".pkl","w") as f:
-            cPickle.dump(kwargs,f)
+            pickle.dump(kwargs,f)
         write_set_to_file(s.nodes,gridname+"_nodes_eq_"+label+".amuse","amuse",append_to_file=False)
 
 def new_option_parser(usage=__doc__):

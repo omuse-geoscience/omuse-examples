@@ -62,4 +62,4 @@ if __name__=="__main__":
 
     pet.stop()
 
-    print "online eddy tracking successfully completed!"
+    print("online eddy tracking successfully completed!")

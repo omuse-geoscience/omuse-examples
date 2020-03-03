@@ -207,14 +207,14 @@ def evolve(code,tend=11. | units.day,timestep=0.5 | units.hour,p=None):
     write_set_to_file(code.nodes, "nodes-%6.6i"%i,"amuse",append_to_file=False)
     write_set_to_file(code.elements, "elements-%6.6i"%i,"amuse",append_to_file=False)
 
-    print "starting main loop.."
-    print "(this may take a while)"
+    print("starting main loop..")
+    print("(this may take a while)")
 
     while tnow<tend: 
         i+=1
         code.evolve_model(tnow+timestep)
         tnow=code.model_time
-        print i,tnow,tnow.in_(units.day)
+        print(i,tnow,tnow.in_(units.day))
         if p:
             p.redraw()
 

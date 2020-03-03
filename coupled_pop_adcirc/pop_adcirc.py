@@ -194,7 +194,7 @@ class POP_Adcirc(object):
         if self.adcirc_ramp:
           adcirc.parameters.use_ramping=True
           adcirc.parameters.ramping_time=self.adcirc_ramp
-        print adcirc.parameters
+        print(adcirc.parameters)
 
         self.adcirc=adcirc
         
@@ -300,15 +300,15 @@ class POP_Adcirc(object):
         timestep=timestep or self.timestep or tend-self.model_time
         while self.model_time<tend-timestep/2:
             next_timestep=self.pop.timestep_next
-            print "update boundary.."
+            print("update boundary..")
             self.update_adcirc_boundary()
-            print "update forcings.."
+            print("update forcings..")
             self.update_adcirc_forcings()            
-            print "evolve pop..."
+            print("evolve pop...")
             self.pop.evolve_model(self.model_time+next_timestep + self.pop_time_offset)
-            print "evolve adcirc.."
+            print("evolve adcirc..")
             self.adcirc.evolve_model(self.model_time+next_timestep + self.adcirc_time_offset)
-            print "done"
+            print("done")
             self.model_time+=next_timestep
         
 
@@ -403,7 +403,7 @@ def evolve(code,p=None, timestep=None, outdir="output",tend=30. | units.day,outp
     timestep=timestep or code.timestep 
     
 
-    print "timestep=",timestep.in_(units.hour)
+    print("timestep=",timestep.in_(units.hour))
     t1=time.time()
     write_set_to_file(code.pop_grid.nodes, os.path.join(outdir,"pop_nodes-%6.6i"%i),"amuse",append_to_file=False)
     write_set_to_file(code.pop_forcings_grid.nodes, os.path.join(outdir,"pop_forcing-%6.6i"%i),"amuse",append_to_file=False)
@@ -415,19 +415,19 @@ def evolve(code,p=None, timestep=None, outdir="output",tend=30. | units.day,outp
     if write_3d:
       write_set_to_file(code.pop.nodes3d[266:320,218:317,:].copy(), os.path.join(outdir,"pop_nodes3d-%6.6i"%i),"amuse",append_to_file=False)
     t2=time.time()
-    print "writing took:", t2-t1
-    print "starting main loop"
+    print("writing took:", t2-t1)
+    print("starting main loop")
 
     while tnow<tend-timestep/2: 
         i+=1
         code.evolve_model(tnow+timestep)
         tnow=code.model_time
-        print i,tnow.in_(units.day),(code.pop.model_time-code.pop_time_offset).in_(units.day),
-        print (code.adcirc.model_time-code.adcirc_time_offset).in_(units.day)
-        print i,tnow/timestep,(code.pop.model_time-code.pop_time_offset)/timestep,
-        print (code.adcirc.model_time-code.adcirc_time_offset)/timestep
+        print(i,tnow.in_(units.day),(code.pop.model_time-code.pop_time_offset).in_(units.day), end=' ')
+        print((code.adcirc.model_time-code.adcirc_time_offset).in_(units.day))
+        print(i,tnow/timestep,(code.pop.model_time-code.pop_time_offset)/timestep, end=' ')
+        print((code.adcirc.model_time-code.adcirc_time_offset)/timestep)
         eta=code.adcirc.nodes.eta
-        print "eta (min,max,mean):", eta.min(), eta.max(), eta.mean()
+        print("eta (min,max,mean):", eta.min(), eta.max(), eta.mean())
         if p:
             p.update(code.pop_grid,code.adcirc_grid)
 
@@ -453,12 +453,12 @@ def evolve_w_plot(code,plot, **kwargs):
     t.daemon = True
     t.start()
 
-    raw_input()
+    input()
 
 def arguments():
     from amuse.units.optparse import OptionParser
     from shutil import copy2
-    import cPickle
+    import pickle
     
     result = OptionParser()
     result.add_option("--dir", 

@@ -171,7 +171,7 @@ if __name__=="__main__":
       prf.amplitudes_phases()
       f=prf.field()
       f2.append(f.std()**2)
-    print "var, expected:",f2.mean(),expected      
+    print("var, expected:",f2.mean(),expected)      
 
     
     field=prf.field()
@@ -196,7 +196,7 @@ if __name__=="__main__":
     
     swh_expected=0.24*u10**2/g
     swh=4*sea.wavefield.std()
-    print "wavefield 4*sigma:",swh.in_(units.m)
+    print("wavefield 4*sigma:",swh.in_(units.m))
     
     # check ensemble
     #~ swh2=[] | units.m**2
@@ -220,5 +220,5 @@ if __name__=="__main__":
     
     dt=0.05 | units.s
     
-    print "dt,fps",dt,1/dt
+    print("dt,fps",dt,1/dt)
     

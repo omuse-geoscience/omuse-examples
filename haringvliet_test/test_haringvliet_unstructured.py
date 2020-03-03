@@ -83,7 +83,7 @@ def TestHaringvliet_Zijlema2010(flow=0.0521 | units.rev/units.s,
 
     s.forcings.depth=bathymetry | units.m
             
-    print "calculating equilibrium...(this may take a while)"
+    print("calculating equilibrium...(this may take a while)")
     s.evolve_model(0. | units.s)
 
     write_set_to_file(s.nodes,"nodes.amuse","amuse",append_to_file=False)

@@ -111,7 +111,7 @@ def plot_swh_ac(**kwargs):
     
     cid = fig.canvas.mpl_connect('motion_notify_event', onclick)
     
-    raw_input()
+    input()
 
 if __name__=="__main__":
     from wavegrowth import new_option_parser, rectangle

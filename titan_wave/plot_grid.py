@@ -5,7 +5,7 @@ as well as spectrum (hover with the mouse over the map of the domain).
 """
 
 import os
-import cPickle
+import pickle
 
 import numpy
 
@@ -90,8 +90,8 @@ def plot_swh_ac(label,**kwargs):
     f2.set_aspect('equal')
     f3.set_aspect('equal')
     
-    print "swh (min,max):",swh.min(),swh.max()
-    print "tmean (min,max):",tmean.min(),tmean.max()
+    print("swh (min,max):",swh.min(),swh.max())
+    print("tmean (min,max):",tmean.min(),tmean.max())
     
     x=grid.x[:,0].value_in(units.km)
     y=grid.y[0,:].value_in(units.km)
@@ -101,7 +101,7 @@ def plot_swh_ac(label,**kwargs):
     gu2=grav/u10**2
     f=gu2*grid.y[0,:]
 
-    print "scaled fetch:", f.min(),f.max()
+    print("scaled fetch:", f.min(),f.max())
     f1.plot(y,(jonswap_swh(f)/gu2).value_in(units.m),'r')
     f1.plot(y,(wilson_swh(f)/gu2).value_in(units.m),'g')
     
@@ -135,7 +135,7 @@ def plot_swh_ac(label,**kwargs):
     
     cid = fig.canvas.mpl_connect('motion_notify_event', onclick)#button_press_event
     
-    raw_input()
+    input()
 
 if __name__=="__main__":
     p=new_option_parser("usage: %prog <argfile> [options]")
@@ -146,7 +146,7 @@ if __name__=="__main__":
       if not os.path.isfile(argfile):
         raise Exception( argfile+" does not exists")
       f=open(argfile,"r")
-      kwargs=cPickle.load(f)
+      kwargs=pickle.load(f)
       f.close()
     else:
       kwargs=vars(o)
