@@ -13,13 +13,14 @@ import numpy
 
 from omuse.community.swan.interface import Swan
 
-from omuse.community.adcirc.read_grid import adcirc_grid_reader, adcirc_parameter_reader
-from omuse.community.adcirc.write_grid import adcirc_grid_writer, adcirc_parameter_writer
+from omuse.io.adcirc import adcirc_grid_reader
 
 from omuse.ext.hurricane_models import HollandHurricane
 
 from omuse.units import units
 
+import matplotlib 
+matplotlib.use("TKAgg")
 from matplotlib import pyplot,tri
 
 from amuse.io import write_set_to_file
@@ -199,6 +200,9 @@ class plot_swh(object):
         cb.set_label("significant wave height (m)")
         
         pyplot.draw()
+        self.fig.canvas.flush_events()
+
+        
         
 def evolve(code,tend=11. | units.day,timestep=0.5 | units.hour,p=None):
     i=0
