@@ -89,10 +89,10 @@ class SwanERA5(object):
         self._flow_boundaries=flow_boundaries
         self._neta=gr.parameters["NETA"]
         
-        n=numpy.ceil(self.nodes.lat.max().value_in(units.deg))+1
-        w=numpy.floor(self.nodes.lon.min().value_in(units.deg))-1
-        s=numpy.floor(self.nodes.lat.min().value_in(units.deg))-1
-        e=numpy.ceil(self.nodes.lon.max().value_in(units.deg))+1
+        n=numpy.ceil(self.nodes.lat.max().value_in(units.deg))
+        w=numpy.floor(self.nodes.lon.min().value_in(units.deg))
+        s=numpy.floor(self.nodes.lat.min().value_in(units.deg))
+        e=numpy.ceil(self.nodes.lon.max().value_in(units.deg))
         
         self._nwse_boundingbox=[n,w,s,e]| units.deg
         
