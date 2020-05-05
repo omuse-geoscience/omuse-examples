@@ -36,7 +36,7 @@ interpolating_lonlat_remapper=partial(interpolating_2D_remapper, axes_names=["lo
 class SwanERA5(object):
 
     def __init__(self, grid_file="grid.input", dt=600 | units.s, start_date=datetime(2008,8,25),
-                  grid_resolution=1.0| units.deg,
+                  grid_resolution=0.25| units.deg,
                   flow=2*numpy.pi*0.0521 | units.rad/units.s,
                   fhigh=2*numpy.pi | units.rad/units.s,msc=32,mdc=36):
         self._dt=dt
